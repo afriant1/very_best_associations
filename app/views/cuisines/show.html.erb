@@ -9,10 +9,35 @@
       <dd><%= @cuisine.name %></dd>
 
       <dt>Dishes</dt>
+      <dd><ul class="list-group">
       <% @cuisine.dishes.each do |dish| %>
-      <dd><li><%= dish.name %></li></dd>
+      <li class="list-group-item">
+      <%= dish.name %></li>
       <% end %>
-    </dl>
+
+      <li class="list-group-item">
+      <form action="/create_dish" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <input name="cuisine_id" type="hidden" value="<%= @cuisine.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @dish.name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Dish
+      </button>
+      </form>
+   </div>
+  </div>
+ </dd>
+</dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/cuisines" class="btn btn-primary">
