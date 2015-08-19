@@ -12,7 +12,21 @@
       <dd><%= @venue.address %></dd>
 
       <dt>Neighborhood</dt>
-      <dd><%= @venue.neighborhood_id %></dd>
+      <dd><%= @venue.neighborhood.name %></dd>
+
+      <dt>Favorites</dt>
+      <dd><table>
+        <tr>
+        <th>Dish</th>
+        <th>User</th>
+        </tr>
+      <% @venue.favorites.each do |favorite| %>
+        <tr>
+        <td><%= favorite.dish.name %></td>
+        <td><%= favorite.user.username %></td>
+        <% end %>
+        </dd></tr></table>
+
 
     </dl>
 

@@ -9,7 +9,25 @@
       <dd><%= @dish.name %></dd>
 
       <dt>Cuisine</dt>
-      <dd><%= @dish.cuisine_id %></dd>
+      <dd><%= @dish.cuisine.name %></dd>
+
+      <dt>Favorites</dt>
+      <dd><table>
+        <tr>
+        <th>Venue</th>
+        <th>User</th>
+        </tr>
+      <% @dish.favorites.each do |favorite| %>
+        <tr>
+        <td><%= favorite.venue.name %></td>
+        <td><%= favorite.user.username %></td>
+        <% end %>
+        </dd></tr></table>
+
+  </div>
+</div>
+
+
 
     </dl>
 

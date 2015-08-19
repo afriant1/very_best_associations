@@ -8,6 +8,10 @@
       <dt>Name</dt>
       <dd><%= @cuisine.name %></dd>
 
+      <dt>Dishes</dt>
+      <% @cuisine.dishes.each do |dish| %>
+      <dd><li><%= dish.name %></li></dd>
+      <% end %>
     </dl>
 
     <div class="btn-group btn-group-justified">
